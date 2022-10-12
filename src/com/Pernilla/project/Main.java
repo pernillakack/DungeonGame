@@ -11,14 +11,16 @@ public class Main {
         game.Welcome();
         game.Menu();
 
-        if (player.health > 0 && monster.health > 0) {
+        // TODO - do-while så länge spelet pågår
+
+        if (Player.getHealth() > 0 && Monster.getHealth() > 0) {
             player.playerCombatAct();
             monster.monsterAttack();
         } else {
-            if (player.health < 0);
+            if (Player.getHealth() < 0);
             player.playerLost();
-            
-            if (monster.health < 0) {
+
+            if (Monster.getHealth() < 0) {
                 monster.monsterDied();
             }
         }

@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class Game {
 
-    public static String name;
     int menuChoice;
 
 
@@ -12,27 +11,25 @@ public class Game {
     Player player = new Player();
 
 
-    public String Welcome () {
+    public void Welcome () {
 
         System.out.println("Welcome to DungeonRun! Hope you come prepared!");
         System.out.println("We are starting to prepare your tombstone. What is your name?");
         Scanner scan = new Scanner(System.in);
-        this.name = scan.next();
-
-        return this.name;
+        player.setName((scan.next()));
 
     }
     public int Menu() {
 
         Monster monster = new Monster();
 
-        System.out.println("Ok " + this.name + ", what would you like to do now?");
+        System.out.println("Ok " + player.getName() + ", what would you like to do now?");
         System.out.println("Press 1 to enter the Dungeon.\nPress 2 to see your status.\nPress 3 to exit the game.");
         Scanner scan = new Scanner(System.in);
 
 
         switch (scan.nextInt()) {
-            case 1 -> monster.getMonster();
+            case 1 -> monster.generateMonster();
             case 2 -> player.playerStatus();
             case 9 -> {
                 System.out.println("Bye bye!");
